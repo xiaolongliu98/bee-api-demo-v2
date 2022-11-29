@@ -13,7 +13,7 @@ type UserMain struct {
 type UserInfo struct {
 	Uid int `orm:"pk;"`
 
-	Avatar   string // 头像
+	Avatar   string `orm:"type(longtext);"` // 头像
 	Username string // 用户名 Not Null, unique
 	Region   string // 地区
 	Balance  string // 余额 Not Null, default(0)
