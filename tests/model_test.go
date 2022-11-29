@@ -30,10 +30,14 @@ func init() {
 }
 
 func TestGetUserMainByXXX(t *testing.T) {
-	u, _ := user.GetUserMainByEmail("1006814807@qq.com")
-	fmt.Printf("%v\n", u)
+	um := &user.UserMain{Email: "1006814807@qq.com"}
+	err := user.GetUserMain(um, "email")
+	if err != nil {
+		panic("")
+	}
+	fmt.Printf("%v\n", um)
 
-	ui, _ := user.GetUserInfoByUid(u.Uid)
+	ui, _ := user.GetUserInfoByUid(um.Uid)
 	fmt.Printf("%v\n", ui)
 }
 
