@@ -1,0 +1,131 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: |
+    beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /user/id/{uid}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过用户id获取用户信息
+        <br>
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: uid
+        description: 用户id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.User'
+        "500":
+          description: '{string}'
+  /user/intro/id/{iid}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过IntroId获取Intro简介信息
+        <br>
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: iid
+        description: 用户简介id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.UserIntro'
+        "500":
+          description: '{string}'
+  /user/intro/uid/{uid}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过用户Id获取Intro简介信息
+        <br>
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: uid
+        description: 用户id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.UserIntro'
+        "500":
+          description: '{string}'
+  /user/username/{username}:
+    get:
+      tags:
+      - user
+      description: |-
+        通过用户名称获取用户信息
+        <br>
+      operationId: UserController.GetUser
+      parameters:
+      - in: query
+        name: username
+        description: 用户名称
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.User'
+        "500":
+          description: '{string}'
+definitions:
+  user.User:
+    title: User
+    type: object
+    properties:
+      id:
+        description: 用户id
+        type: integer
+        format: int64
+      password:
+        description: 用户密码
+        type: string
+      username:
+        description: 用户名
+        type: string
+  user.UserIntro:
+    title: UserIntro
+    type: object
+    properties:
+      id:
+        description: 简介id
+        type: integer
+        format: int64
+      introduction:
+        description: 简介内容
+        type: string
+      user_id:
+        description: 用户id
+        type: integer
+        format: int64

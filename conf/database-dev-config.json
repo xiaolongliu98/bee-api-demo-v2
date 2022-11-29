@@ -1,0 +1,9 @@
+{
+  "alias": "default",
+  "driver": "mysql",
+  "username": "root",
+  "password": "123456",
+  "ip_port": "192.168.12.136:3306",
+  "db_name": "snos",
+  "timeout": "5s"
+}
