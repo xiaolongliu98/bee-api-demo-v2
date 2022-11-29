@@ -5,27 +5,10 @@ import (
 	"bee-api-demo/models/user"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"os"
-	"path/filepath"
-	"runtime"
-	"strings"
 	"testing"
 )
 
 func init() {
-	// 测试固定写法------------------------------------
-	projectName := "bee-api-demo"
-	_, file, _, _ := runtime.Caller(0)
-	for {
-		file = filepath.Dir(file)
-		if strings.HasSuffix(file, projectName) {
-			break
-		}
-	}
-	file, _ = filepath.Abs(file)
-	os.Setenv("ROOTDIR", file)
-	// ------------------------------------------
-
 	models.RegisterAll()
 }
 
