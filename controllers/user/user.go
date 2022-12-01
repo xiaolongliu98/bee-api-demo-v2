@@ -26,18 +26,18 @@ import (
 func (u *UserController) GetUserMainAndInfoById() {
 	uid, err := u.GetInt(":uid")
 	if err != nil {
-		u.Data["json"] = err.Error()
+		u.Data["json"] = utils.WrapperError(err.Error(), -1)
 		u.ServeJSON()
 		return
 	}
 
 	um, ui, code := user.GetUserMainAndInfoByUid(uid)
 	if code == 0 {
-		u.Data["json"] = "get user failed"
+		u.Data["json"] = utils.WrapperError("get user failed", -1)
 		u.ServeJSON()
 		return
 	}
 
-	u.Data["json"] = utils.MergeModelsToMap(um, ui)
+	u.Data["json"] = utils.Wrapper("ok", 0, utils.MergeModelsToMap(um, ui))
 	u.ServeJSON()
 }
