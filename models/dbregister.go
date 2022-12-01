@@ -6,7 +6,6 @@ import (
 	"bee-api-demo/utils"
 	"fmt"
 	"github.com/astaxie/beego/orm"
-	"os"
 )
 
 // registerDB
@@ -42,8 +41,7 @@ func registerModels() {
 }
 
 func registerORM() {
-	baseDir := utils.WithDefault(os.Getenv("ROOTDIR"), "", ".")
-	err := registerDB(baseDir + "/conf/database-dev-config.json")
+	err := registerDB(utils.GetProjectRoot() + "/conf/database-dev-config.json")
 	if err != nil {
 		panic(fmt.Sprintf("%v\n", err.Error()))
 		return

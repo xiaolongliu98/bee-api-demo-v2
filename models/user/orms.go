@@ -44,7 +44,7 @@ func GetUserMain(um *UserMain, by string) error {
 }
 
 // AddUserMain
-// @Description 插入一条用户核心数据，注意：成功后在um中不会保存uid
+// @Description 插入一条用户核心数据，成功后在um中会保存uid
 // @Author 		xiaolong
 // @Date		2022/11/29 14:59(create);
 // @Param		um		*UserMain		用户核心数据

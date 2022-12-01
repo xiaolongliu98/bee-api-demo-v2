@@ -9,7 +9,6 @@ import (
 )
 
 func init() {
-	//os.Setenv("ROOTDIR", utils.GetRunningAbsDir())
 	models.RegisterAll()
 }
 
