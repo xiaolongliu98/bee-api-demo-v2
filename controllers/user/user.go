@@ -14,8 +14,8 @@ import (
 // 若提示nomatch，请关闭后在命令行使用bee fix修复后再进行启动
 // 注意：默认数据库配置需要开启玉泉VPN，表结构参考SNOS
 
-// GetUserMainAndInfoById
-// @Title GetUser
+// Example
+// @Title GetUserMainAndInfoById
 // @Author xiaolong
 // @Date 2022/11/24 21:26(create);
 // @Description 通过用户id获取用户信息
@@ -23,7 +23,8 @@ import (
 // @Success 200 {object} UserMain+UserInfo
 // @Failure 500 {string}
 // @router /uid/:uid [get]
-func (u *UserController) GetUserMainAndInfoById() {
+func (u *UserController) Example() {
+	// GetUserMainAndInfoById
 	uid, err := u.GetInt(":uid")
 	if err != nil {
 		u.Data["json"] = utils.WrapperError(err.Error(), -1)
