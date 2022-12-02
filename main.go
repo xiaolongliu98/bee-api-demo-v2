@@ -3,6 +3,7 @@ package main
 import (
 	"bee-api-demo/models"
 	_ "bee-api-demo/routers"
+	"fmt"
 	"github.com/astaxie/beego/orm"
 	beego "github.com/beego/beego/v2/server/web"
 	_ "github.com/go-sql-driver/mysql"
@@ -19,5 +20,6 @@ func main() {
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
 	}
 	beego.Run()
+
 	fmt.Printf("hello")
 }
