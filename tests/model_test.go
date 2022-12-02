@@ -102,3 +102,8 @@ func TestUtils(t *testing.T) {
 	fmt.Printf("%v\n", w)
 
 }
+
+func TestName(t *testing.T) {
+	fmt.Println("test conflict")
+
+}
