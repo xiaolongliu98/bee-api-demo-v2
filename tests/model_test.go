@@ -1,6 +1,7 @@
 package test
 
 import (
+	"bee-api-demo/models"
 	"bee-api-demo/models/user"
 	"bee-api-demo/utils"
 	"fmt"
@@ -9,7 +10,7 @@ import (
 )
 
 func init() {
-	//models.RegisterAll()
+	models.RegisterAll()
 }
 
 func TestGetUserMainByXXX(t *testing.T) {
